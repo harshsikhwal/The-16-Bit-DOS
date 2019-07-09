@@ -1,0 +1,24 @@
+# how much memory the emulated machine will have
+megs: 32
+
+
+# ROM and VGA BIOS images ---------------------------------------------
+ 
+romimage: file=../BIOS-bochs-latest
+vgaromimage: file=../VGABIOS-lgpl-latest 
+ 
+# boot from floppy using our disk image -------------------------------
+ 
+floppya: 1_44="C:\Program Files (x86)\Bochs-2.6.8\m5\disk3.img", status=inserted  # Boot from drive A
+
+boot:a
+
+# logging and reporting -----------------------------------------------
+ 
+log:         OSDev.log             # All errors and info logs will output to OSDev.log
+error:       action=report 
+info:        action=report
+
+
+
+

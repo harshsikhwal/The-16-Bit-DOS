@@ -1,0 +1,47 @@
+
+
+begin:
+
+comp equ 0
+
+	Console.clrscr
+	Console.println msg
+	trmnl:
+		Console.print NL,prompt
+		call clear_inp
+		Console.read inp
+		String.equals comp, inp, exit
+		mov cx, [comp]
+		cmp cx, 0
+			je halt		
+		Console.println NL, ent, inp
+	jmp trmnl
+
+	halt:
+		Console.print NL, off
+		System.halt
+
+clear_inp:
+	mov di, inp
+	mov al, 0
+	mov cx, 32
+	rep stosb
+	ret
+
+String(msg,"Booting Successful.")
+String(exit,"exit")
+String(off,"System halted.")
+String(ent,"Input: ")
+
+inp times 32 db 0
+ns prompt, CRETURN,">> "
+
+
+
+
+;new
+
+;mov ah, 9
+;mov al, '='
+;mov bx, 7
+;mov cx, 10
